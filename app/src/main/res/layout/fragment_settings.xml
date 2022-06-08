@@ -88,44 +88,52 @@
             ads:layout_constraintTop_toBottomOf="@id/toastDesignContainer"
             tools:ignore="MissingConstraints"/>
 
-        <Switch
-            android:id="@+id/soundSwitch"
+        <RelativeLayout
+            android:id="@+id/switchContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
             ads:layout_constraintStart_toStartOf="parent"
             ads:layout_constraintEnd_toEndOf="parent"
             ads:layout_constraintTop_toBottomOf="@id/line1"
-            android:text=""
-            android:textColor="@color/mainBlueColor"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            android:thumb="@drawable/switch_humb"
-            android:track="@drawable/switch_track_selector_new"
-            tools:ignore="UseSwitchCompatOrMaterialXml" />
+            >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Isključi zvučne signale na ispitu"
-            android:textColor="@color/mainBlueColor"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            ads:layout_constraintHorizontal_bias="0.0"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginStart="30dp"
-            ads:layout_constraintStart_toStartOf="parent"
-            ads:layout_constraintEnd_toEndOf="parent"
-            ads:layout_constraintTop_toBottomOf="@id/line1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Isključi zvučne signale na ispitu"
+                android:textColor="@color/mainBlueColor"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/soundSwitch"
+                ads:layout_constraintHorizontal_bias="0.0"
+                android:layout_marginStart="30dp"
+                />
+
+            <Switch
+                android:id="@+id/soundSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginEnd="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text=""
+                android:textColor="@color/mainBlueColor"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:thumb="@drawable/switch_humb"
+                android:track="@drawable/switch_track_selector_new"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+        </RelativeLayout>
+
+
         <View
             android:id="@+id/soundLine"
             style="@style/separatorStyle"
-            ads:layout_constraintTop_toBottomOf="@id/soundSwitch"
+            ads:layout_constraintTop_toBottomOf="@id/switchContainer"
             tools:ignore="MissingConstraints" />
 
 

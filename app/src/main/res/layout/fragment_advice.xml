@@ -77,7 +77,17 @@
                 ads:layout_constraintTop_toBottomOf="@id/seven"
                 android:text="Tražite pojašnjenje ili pomoć od instruktora ili ispitivača ako nešto niste razumjeli"/>
 
-            <com.google.android.gms.ads.AdView
+            <FrameLayout
+                android:id="@+id/adView_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                ads:layout_constraintTop_toBottomOf="@id/eight"
+                ads:layout_constraintBottom_toBottomOf="parent"
+                ads:layout_constraintStart_toStartOf="parent"
+                ads:layout_constraintEnd_toEndOf="parent">
+            </FrameLayout>
+            <!--com.google.android.gms.ads.AdView
                 android:id="@+id/adView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -90,7 +100,7 @@
                 ads:layout_constraintEnd_toEndOf="parent"
                 ads:layout_constraintTop_toBottomOf="@id/eight"
                 ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
-            </com.google.android.gms.ads.AdView>
+            </com.google.android.gms.ads.AdView-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
