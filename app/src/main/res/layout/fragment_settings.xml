@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="pref"
+            type="com.varivoda.igor.autokola_testovi2019.data.pref.Preferences" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/settings_background"
+        tools:context=".ui.settings.SettingsFragment">
+
+        <TextView
+            android:id="@+id/sett"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="POSTAVKE"
+            ads:layout_constraintStart_toStartOf="parent"
+            ads:layout_constraintEnd_toEndOf="parent"
+            ads:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/mainBlueColor"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:ignore="UseCompatTextViewDrawableXml"/>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/toastDesignContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ads:layout_constraintVertical_bias="0.0"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="30dp"
+            ads:layout_constraintStart_toStartOf="parent"
+            ads:layout_constraintEnd_toEndOf="parent"
+            ads:layout_constraintTop_toBottomOf="@id/sett"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/toastDesign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="5dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:text="Dizajn obavijesti"
+                android:textColor="@color/mainBlueColor"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                ads:layout_constraintStart_toStartOf="parent"
+                ads:layout_constraintEnd_toEndOf="parent"
+                ads:layout_constraintTop_toTopOf="parent"
+                tools:ignore="UseCompatTextViewDrawableXml"/>
+
+            <TextView
+                android:id="@+id/selectedDesign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:text="@{pref.toastDesign}"
+                android:textColor="@color/mainBlueColor"
+                android:textSize="13sp"
+                ads:layout_constraintStart_toStartOf="parent"
+                ads:layout_constraintEnd_toEndOf="parent"
+                ads:layout_constraintTop_toBottomOf="@id/toastDesign"
+                tools:ignore="UseCompatTextViewDrawableXml"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/line1"
+            style="@style/separatorStyle"
+            ads:layout_constraintTop_toBottomOf="@id/toastDesignContainer"
+            tools:ignore="MissingConstraints"/>
+
+        <Switch
+            android:id="@+id/soundSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            ads:layout_constraintStart_toStartOf="parent"
+            ads:layout_constraintEnd_toEndOf="parent"
+            ads:layout_constraintTop_toBottomOf="@id/line1"
+            android:text=""
+            android:textColor="@color/mainBlueColor"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:thumb="@drawable/switch_humb"
+            android:track="@drawable/switch_track_selector_new"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Isključi zvučne signale na ispitu"
+            android:textColor="@color/mainBlueColor"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            ads:layout_constraintHorizontal_bias="0.0"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginStart="30dp"
+            ads:layout_constraintStart_toStartOf="parent"
+            ads:layout_constraintEnd_toEndOf="parent"
+            ads:layout_constraintTop_toBottomOf="@id/line1"/>
+        <View
+            android:id="@+id/soundLine"
+            style="@style/separatorStyle"
+            ads:layout_constraintTop_toBottomOf="@id/soundSwitch"
+            tools:ignore="MissingConstraints" />
+
+
+        <TextView
+            android:id="@+id/rateApp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_link_to_right"
+            android:gravity="center_vertical"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            ads:layout_constraintStart_toStartOf="parent"
+            ads:layout_constraintEnd_toEndOf="parent"
+            ads:layout_constraintTop_toBottomOf="@id/soundLine"
+            android:text="Ocijenite aplikaciju"
+            android:textColor="@color/mainBlueColor"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            tools:ignore="UseCompatTextViewDrawableXml"/>
+
+        <View
+            android:id="@+id/line2"
+            style="@style/separatorStyle"
+            ads:layout_constraintTop_toBottomOf="@id/rateApp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/link1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_link_to_right"
+            android:gravity="center_vertical"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            ads:layout_constraintStart_toStartOf="parent"
+            ads:layout_constraintEnd_toEndOf="parent"
+            ads:layout_constraintTop_toBottomOf="@id/line2"
+
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="Ostale aplikacije razvojnog programera"
+            android:textColor="@color/mainBlueColor"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            tools:ignore="UseCompatTextViewDrawableXml"/>
+
+        <View
+            android:id="@+id/line3"
+            style="@style/separatorStyle"
+            ads:layout_constraintTop_toBottomOf="@id/link1"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/versionAppContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Verzija aplikacije"
+            android:layout_marginStart="30dp"
+            android:textStyle="bold"
+            ads:layout_constraintStart_toStartOf="parent"
+            ads:layout_constraintEnd_toEndOf="parent"
+            ads:layout_constraintTop_toBottomOf="@id/line3"
+            android:layout_marginEnd="30dp"
+            android:textColor="@color/mainBlueColor"
+            android:textSize="17sp"
+             />
+
+        <TextView
+            android:id="@+id/versionApp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            tools:text="1.0.0"
+            ads:layout_constraintStart_toStartOf="parent"
+            ads:layout_constraintEnd_toEndOf="parent"
+            ads:layout_constraintTop_toBottomOf="@id/versionAppContainer"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/mainBlueColor"
+            android:textSize="13sp"
+             />
+
+        <View
+            android:id="@+id/line4"
+            style="@style/separatorStyle"
+            ads:layout_constraintTop_toBottomOf="@id/versionApp"
+            tools:ignore="MissingConstraints" />
+
+
+           <!--com.google.android.gms.ads.AdView
+               android:id="@+id/adView"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="10dp"
+               android:layout_marginBottom="5dp"
+               ads:adSize="BANNER"
+               ads:layout_constraintStart_toStartOf="parent"
+               ads:layout_constraintEnd_toEndOf="parent"
+               ads:layout_constraintTop_toBottomOf="@id/line4"
+               ads:layout_constraintBottom_toBottomOf="parent"
+               ads:layout_constraintVertical_bias="1.0"
+               android:layout_alignParentBottom="true"
+               ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+           </com.google.android.gms.ads.AdView-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

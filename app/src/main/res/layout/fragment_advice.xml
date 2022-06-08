@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:ads="http://schemas.android.com/apk/res-auto">
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/settings_background"
+        tools:context=".ui.advice.AdviceFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/first"
+                style="@style/adviceItemStyle.Header"
+                ads:layout_constraintStart_toStartOf="parent"
+                ads:layout_constraintEnd_toEndOf="parent"
+                ads:layout_constraintTop_toTopOf="parent"
+                android:text="Savjeti za polaganje ispita"
+                />
+
+            <TextView
+                android:id="@+id/second"
+                ads:layout_constraintStart_toStartOf="parent"
+                ads:layout_constraintEnd_toEndOf="parent"
+                ads:layout_constraintTop_toBottomOf="@id/first"
+                style="@style/adviceItemStyle"
+                android:text="Nemojte koristiti nikakva sredstva za smirenje prije vožnje"/>
+
+            <TextView
+                android:id="@+id/third"
+                style="@style/adviceItemStyle"
+                ads:layout_constraintStart_toStartOf="parent"
+                ads:layout_constraintEnd_toEndOf="parent"
+                ads:layout_constraintTop_toBottomOf="@id/second"
+                android:text="Probajte se opustiti i ne razmišljati previše o ishodu"/>
+
+            <TextView
+                android:id="@+id/fourth"
+                style="@style/adviceItemStyle"
+                ads:layout_constraintStart_toStartOf="parent"
+                ads:layout_constraintEnd_toEndOf="parent"
+                ads:layout_constraintTop_toBottomOf="@id/third"
+                android:text="Adekvatno se obucite kako bi se što ugodnije osjećali u vozilu"/>
+
+            <TextView
+                android:id="@+id/fifth"
+                style="@style/adviceItemStyle"
+                ads:layout_constraintStart_toStartOf="parent"
+                ads:layout_constraintEnd_toEndOf="parent"
+                ads:layout_constraintTop_toBottomOf="@id/fourth"
+                android:text="Pijte tekućinu i budite skoncentrirani"/>
+
+            <TextView
+                android:id="@+id/six"
+                style="@style/adviceItemStyle"
+                ads:layout_constraintStart_toStartOf="parent"
+                ads:layout_constraintEnd_toEndOf="parent"
+                ads:layout_constraintTop_toBottomOf="@id/fifth"
+                android:text="Noć prije ispita potrebno je naspavati se i odmoriti se"/>
+
+            <TextView
+                android:id="@+id/seven"
+                style="@style/adviceItemStyle"
+                ads:layout_constraintStart_toStartOf="parent"
+                ads:layout_constraintEnd_toEndOf="parent"
+                ads:layout_constraintTop_toBottomOf="@id/six"
+                android:text="Razgibajte se i prošetajte prije vožnje jer stres i trema izazivaju drhtanje ruku i nogu"/>
+
+            <TextView
+                android:id="@+id/eight"
+                style="@style/adviceItemStyle"
+                ads:layout_constraintStart_toStartOf="parent"
+                ads:layout_constraintEnd_toEndOf="parent"
+                ads:layout_constraintTop_toBottomOf="@id/seven"
+                android:text="Tražite pojašnjenje ili pomoć od instruktora ili ispitivača ako nešto niste razumjeli"/>
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                ads:adSize="BANNER"
+                ads:layout_constraintStart_toStartOf="parent"
+                ads:layout_constraintEnd_toEndOf="parent"
+                ads:layout_constraintTop_toBottomOf="@id/eight"
+                ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+            </com.google.android.gms.ads.AdView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

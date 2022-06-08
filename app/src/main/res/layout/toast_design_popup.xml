@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <ImageView
+            android:id="@+id/dismissPopupBackground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/separatorColor"
+            android:alpha="0.9"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="12dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            app:cardCornerRadius="16dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center"
+                    android:text="Izaberite dizajn obavijesti"
+                    android:textColor="@color/mainBlueColor"
+                    android:textSize="14sp"
+                    />
+
+                <View
+                    android:id="@+id/firstLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/title"
+                    android:background="#E6E9EC"/>
+
+
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/firstLine"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="19dp">
+
+                    <RadioButton
+                        android:id="@+id/defaultFilter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/mainBlueColor"
+                        android:textSize="16sp"
+                        android:padding="4dp"
+                        android:backgroundTint="@color/teal_700"
+                        android:buttonTint="@color/teal_700"
+                        android:text="Default"/>
+
+
+                    <RadioButton
+                        android:id="@+id/lightFilter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/mainBlueColor"
+                        android:textSize="16sp"
+                        android:padding="4dp"
+                        android:backgroundTint="@color/teal_700"
+                        android:buttonTint="@color/teal_700"
+                        android:text="Dnevna"/>
+
+                    <RadioButton
+                        android:id="@+id/darkFilter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/mainBlueColor"
+                        android:textSize="16sp"
+                        android:padding="4dp"
+                        android:backgroundTint="@color/teal_700"
+                        android:buttonTint="@color/teal_700"
+                        android:text="Noćna"/>
+
+                </RadioGroup>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+</layout>
+

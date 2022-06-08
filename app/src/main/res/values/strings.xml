@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Autoškola testovi</string>
+    <string name="instructions">Za rješavanje testa imate na raspolaganju 45 minuta. Vaša zadaća je da na svako pitanje i ponuđene odgovore odlučite koji je odgovor od ponuđenih točan. Kada se odlučite za točan odgovor ili točne odgovore kliknite na kvadratić pored tog odgovora. Na jedno postavljeno pitanje može biti jedan ili više točnih odgovora, pa i svi ponuđeni odgovori mogu biti točni. Pitanje na koje nije odgovoreno ili je netočno odgovoreno ili je samo djelomično odgovoreno ocjenjuje se kao netočno. Ispit ćete položiti ako odgovorite točno na najmanje 34 od ukupno 38 pitanja</string>
+    <string name="next_question">Iduće pitanje</string>
+    <string name="confirm">Potvrdi</string>
+    <string name="close_exam">Završi test</string>
+
+</resources>
