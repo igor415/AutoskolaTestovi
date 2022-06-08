@@ -94,7 +94,7 @@
                         android:id="@+id/advice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:drawableStart="@drawable/ic_home_color_white"
+                        android:drawableStart="@drawable/ic_advice_image"
                         android:drawablePadding="6dp"
                         android:gravity="center"
                         android:paddingStart="11dp"

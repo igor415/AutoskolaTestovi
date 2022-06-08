@@ -125,7 +125,7 @@ class MainActivity : AppCompatActivity() {
             )
         }else if(selectedTextView.id == R.id.home){
             binding.advice.setCompoundDrawablesWithIntrinsicBounds(
-                R.drawable.ic_home_color_white,
+                R.drawable.ic_advice_image,
                 0,
                 0,
                 0
@@ -138,7 +138,7 @@ class MainActivity : AppCompatActivity() {
             )
         }else{
             binding.advice.setCompoundDrawablesWithIntrinsicBounds(
-                R.drawable.ic_home_color_white,
+                R.drawable.ic_advice_image,
                 0,
                 0,
                 0
@@ -203,7 +203,7 @@ class MainActivity : AppCompatActivity() {
         when(textView.id){
             R.id.advice -> {
                 textView.setCompoundDrawablesWithIntrinsicBounds(
-                    R.drawable.ic_home_icon_blue,
+                    R.drawable.ic_advice_image_blue,
                     0,
                     0,
                     0
@@ -252,13 +252,4 @@ class MainActivity : AppCompatActivity() {
         binding.bottomLayout.visibility = View.VISIBLE
     }
 
-   /*override fun onResume() {
-        super.onResume()
-        val LaunchIntent =
-            this.getPackageManager().getLaunchIntentForPackage("com.trilix.voucherterminalmobile.demo")
-        LaunchIntent?.putExtra("isExitable",true)
-       LaunchIntent?.putExtra("exitAppPackage","com.salesperitias.sp101kiosk")
-       LaunchIntent?.putExtra("maxIdleTime",10)
-        startActivity(LaunchIntent)
-    }*/
 }
