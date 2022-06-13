@@ -23,7 +23,7 @@ class TestViewModelTest {
 
     @Before
     fun setUp(){
-        testViewModel = TestViewModel(FakeMainRepository(), testDispatcher)
+        testViewModel = TestViewModel(FakeMainRepository())
     }
 
 

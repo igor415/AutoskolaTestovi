@@ -8,11 +8,11 @@ class FakeMainRepository: MainRepositoryInterface {
 
     var tests = mutableListOf(TestEntity(1))
 
-    override fun getAllTests(): List<TestEntity> {
+    override suspend fun getAllTests(): List<TestEntity> {
         return tests
     }
 
-    override fun getQuestionListForTestId(testId: Int): List<QuestionEntity> {
+    override suspend fun getQuestionListForTestId(testId: Int): List<QuestionEntity> {
         return emptyList()
     }
 

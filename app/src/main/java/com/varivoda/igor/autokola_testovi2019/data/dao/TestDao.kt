@@ -9,9 +9,9 @@ import com.varivoda.igor.autokola_testovi2019.data.entity.TestEntity
 interface TestDao {
 
     @Insert
-    fun insertTestEntity(testEntity: TestEntity)
+    suspend fun insertTestEntity(testEntity: TestEntity)
 
     @Query("SELECT * FROM TestEntity")
-    fun getAllTests(): List<TestEntity>
+    suspend fun getAllTests(): List<TestEntity>
 
 }

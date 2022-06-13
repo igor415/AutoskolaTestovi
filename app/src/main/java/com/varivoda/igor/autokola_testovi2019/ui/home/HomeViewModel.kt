@@ -10,17 +10,22 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class HomeViewModel(private val mainRepositoryInterface: MainRepositoryInterface,
-                    private val ioDispatcher: CoroutineDispatcher  = Dispatchers.IO): ViewModel() {
+class HomeViewModel(private val mainRepositoryInterface: MainRepositoryInterface): ViewModel() {
 
     val allTests: LiveData<List<TestEntity>>
         get() = _allTests
+    val testsLoading: LiveData<Boolean>
+        get() = _testsLoading
 
     private val _allTests = MutableLiveData<List<TestEntity>>()
+    private val _testsLoading = MutableLiveData<Boolean>()
 
     fun getAllTests() {
-        viewModelScope.launch(ioDispatcher) {
-            _allTests.postValue(mainRepositoryInterface.getAllTests())
+        _testsLoading.value = true
+        viewModelScope.launch {
+            val list = mainRepositoryInterface.getAllTests()
+            _allTests.value = list
+            _testsLoading.value = false
         }
     }
 }

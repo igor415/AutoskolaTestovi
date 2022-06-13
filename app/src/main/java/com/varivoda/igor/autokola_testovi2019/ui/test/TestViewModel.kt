@@ -14,8 +14,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class TestViewModel(
-    private val mainRepository: MainRepositoryInterface,
-    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
+    private val mainRepository: MainRepositoryInterface
 ) : ViewModel() {
 
     companion object {
@@ -130,15 +129,15 @@ class TestViewModel(
     }
 
     fun getQuestionListForTestId(testId: Int) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             val list = mainRepository.getQuestionListForTestId(testId)
             questionList = list
             /*if(list.isNotEmpty()){
                 _currentQuestion.postValue(list.first())
             }*/
-            withContext(Dispatchers.Main) {
+            //withContext(Dispatchers.Main) {
                 onConfirmClicked()
-            }
+            //}
         }
 
     }

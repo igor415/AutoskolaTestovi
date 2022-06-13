@@ -26,7 +26,8 @@ object ServiceLocator {
     }
 
     private fun createMainRepository(context: Context): MainRepository {
-        val newRepo = MainRepository(getDatabase(context))
+        val db = getDatabase(context)
+        val newRepo = MainRepository(db.testDao, db.questionDao)
         mainRepository = newRepo
         return newRepo
     }

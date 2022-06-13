@@ -9,8 +9,8 @@ import com.varivoda.igor.autokola_testovi2019.data.entity.QuestionEntity
 interface QuestionDao{
 
     @Insert
-    fun insertQuestionEntity(questionEntity: QuestionEntity)
+    suspend fun insertQuestionEntity(questionEntity: QuestionEntity)
 
     @Query("SELECT * FROM QuestionEntity WHERE testId = :id")
-    fun getAllQuestionsForTestId(id: Int): List<QuestionEntity>
+    suspend fun getAllQuestionsForTestId(id: Int): List<QuestionEntity>
 }
