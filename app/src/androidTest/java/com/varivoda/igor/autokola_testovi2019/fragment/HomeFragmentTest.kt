@@ -51,7 +51,7 @@ class HomeFragmentTest {
         launchFragmentInContainer<HomeFragment>(null,R.style.Theme_AutoškolaTestovi)
 
         //in order to see it visually
-        Thread.sleep(3000)
+        Thread.sleep(1000)
     }
 
     @Test
@@ -61,7 +61,7 @@ class HomeFragmentTest {
         launchFragmentInContainer<HomeFragment>(null,R.style.Theme_AutoškolaTestovi)
 
         //in order to see it visually
-        Thread.sleep(3000)
+        Thread.sleep(1000)
     }
 
     @Test

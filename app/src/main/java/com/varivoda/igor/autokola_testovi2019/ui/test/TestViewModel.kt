@@ -135,9 +135,7 @@ class TestViewModel(
             /*if(list.isNotEmpty()){
                 _currentQuestion.postValue(list.first())
             }*/
-            //withContext(Dispatchers.Main) {
-                onConfirmClicked()
-            //}
+            onConfirmClicked()
         }
 
     }

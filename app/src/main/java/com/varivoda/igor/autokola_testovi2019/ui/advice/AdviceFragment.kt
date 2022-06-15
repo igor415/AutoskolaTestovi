@@ -44,7 +44,9 @@ class AdviceFragment : Fragment() {
     private fun loadBanner() {
         val adRequest = AdRequest.Builder().build()
         val adSize = getAdSize()
-        adView.adSize = adSize
+        if (adSize != null) {
+            adView.setAdSize(adSize)
+        }
         adView.loadAd(adRequest)
     }
 

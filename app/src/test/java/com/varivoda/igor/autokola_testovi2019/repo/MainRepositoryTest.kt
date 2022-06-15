@@ -8,6 +8,7 @@ import com.varivoda.igor.autokola_testovi2019.data.repo.MainRepository
 import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.notNullValue
 import org.hamcrest.core.IsEqual
@@ -35,21 +36,21 @@ class MainRepositoryTest {
     }
 
     @Test
-    fun checkIfListOfTestsIsEmpty() = runBlockingTest{
+    fun checkIfListOfTestsIsEmpty() = runTest{
         `when`(testDao.getAllTests()).thenReturn(listOf(TestEntity(1)))
         val list = mainRepository.getAllTests()
         assertEquals(1, list.size)
     }
 
     @Test
-    fun getQuestionListWithUnknownTestId() = runBlockingTest{
+    fun getQuestionListWithUnknownTestId() = runTest{
         `when`(questionDao.getAllQuestionsForTestId(111)).thenReturn(emptyList())
         val response = mainRepository.getQuestionListForTestId(111)
         assertThat(response.size, IsEqual(0))
     }
 
     @Test
-    fun getFirstQuestionInListWithCorrectId() = runBlockingTest{
+    fun getFirstQuestionInListWithCorrectId() = runTest{
         `when`(questionDao.getAllQuestionsForTestId(1)).thenReturn(listOf(QuestionEntity(1,1,1,
         "pitanje","null","1#2#3","1")))
         val response = mainRepository.getQuestionListForTestId(1).firstOrNull()

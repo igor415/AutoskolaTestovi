@@ -15,6 +15,7 @@ import com.varivoda.igor.autokola_testovi2019.data.entity.TestEntity
 import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.*
 import org.junit.After
@@ -46,20 +47,20 @@ class AppDatabaseTest {
     }
 
     @Test
-    fun ifNoQuestionsForTestIdReturnEmptyList() = runBlockingTest{
+    fun ifNoQuestionsForTestIdReturnEmptyList() = runTest{
         val list = questionDao.getAllQuestionsForTestId(1)
         assertEquals(list.isEmpty(), true)
     }
 
     @Test
-    fun getAllAvailableTests() = runBlockingTest{
+    fun getAllAvailableTests() = runTest{
         testDao.insertTestEntity(TestEntity(1))
         testDao.insertTestEntity(TestEntity(2))
         assertThat(testDao.getAllTests(), hasSize(2))
     }
 
     @Test
-    fun getChoicesFromFirstQuestionAndSplitThemByDelimiter() = runBlockingTest{
+    fun getChoicesFromFirstQuestionAndSplitThemByDelimiter() = runTest{
         testDao.insertTestEntity(TestEntity(1))
         questionDao.insertQuestionEntity(QuestionEntity(1,1,1,"Pitanje","null",
         "prvo#drugo#trece","trece"))
@@ -69,7 +70,7 @@ class AppDatabaseTest {
     }
 
     @Test
-    fun insertQuestionAndGetItFromDb() = runBlockingTest {
+    fun insertQuestionAndGetItFromDb() = runTest {
         testDao.insertTestEntity(TestEntity(1))
         questionDao.insertQuestionEntity(QuestionEntity(1,1,1,"Pitanje","null",
             "prvo#drugo#trece","trece"))

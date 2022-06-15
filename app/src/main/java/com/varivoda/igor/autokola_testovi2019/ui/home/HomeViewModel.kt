@@ -1,9 +1,6 @@
 package com.varivoda.igor.autokola_testovi2019.ui.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.varivoda.igor.autokola_testovi2019.data.entity.TestEntity
 import com.varivoda.igor.autokola_testovi2019.data.repo.MainRepositoryInterface
 import kotlinx.coroutines.CoroutineDispatcher
@@ -19,6 +16,10 @@ class HomeViewModel(private val mainRepositoryInterface: MainRepositoryInterface
 
     private val _allTests = MutableLiveData<List<TestEntity>>()
     private val _testsLoading = MutableLiveData<Boolean>()
+
+    val allTestsModified = Transformations.map(allTests){tests ->
+        tests.map { "Ispit ${it.id}" }
+    }
 
     fun getAllTests() {
         _testsLoading.value = true

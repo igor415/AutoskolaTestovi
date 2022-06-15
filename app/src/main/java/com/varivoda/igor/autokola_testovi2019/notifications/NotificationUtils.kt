@@ -21,7 +21,13 @@ fun NotificationManager.sendNotification(applicationContext: Context){
 
 
     val contentIntent = Intent(applicationContext, MainActivity::class.java)
-    val pendingIntent = PendingIntent.getActivity(applicationContext,78,contentIntent,PendingIntent.FLAG_UPDATE_CURRENT)
+    val pendingIntent = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+        PendingIntent.getActivity(applicationContext,78,contentIntent,
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
+    }else{
+        PendingIntent.getActivity(applicationContext,78,contentIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT)
+    }
     val builder = NotificationCompat.Builder(
         applicationContext,
         "12"

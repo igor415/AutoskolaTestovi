@@ -34,12 +34,11 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_home, container, false)
         binding.viewModel = viewModel
         return binding.root
-        //return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -53,6 +52,10 @@ class HomeFragment : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner){
             requireActivity().finish()
         }
+        viewModel.allTestsModified.observe(viewLifecycleOwner, Observer {
+            if(it==null)return@Observer
+            println(it)
+        })
     }
 
     private fun observeTests() {

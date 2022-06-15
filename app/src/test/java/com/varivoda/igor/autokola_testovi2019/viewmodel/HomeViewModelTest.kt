@@ -8,6 +8,8 @@ import com.varivoda.igor.autokola_testovi2019.getOrAwaitValue
 import com.varivoda.igor.autokola_testovi2019.ui.home.HomeViewModel
 import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.pauseDispatcher
+import kotlinx.coroutines.test.resumeDispatcher
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Rule

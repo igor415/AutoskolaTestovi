@@ -34,7 +34,7 @@ class SplashFragmentTest {
     fun checkBackgroundColorOfFragment() = runBlockingTest {
         launchFragmentInContainer<SplashFragment>(null, R.style.Theme_AutoškolaTestovi)
 
-        onView(withId(R.id.motion)).check(matches(isDisplayed()))
-        onView(withId(R.id.motion)).check(matches(matchesBackgroundColor(R.color.mainBlueColor)))
+        onView(withId(R.id.backgroundView)).check(matches(isDisplayed()))
+        onView(withId(R.id.backgroundView)).check(matches(matchesBackgroundColor(R.color.purple_500)))
     }
 }
