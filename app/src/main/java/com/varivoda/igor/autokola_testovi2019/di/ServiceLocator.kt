@@ -14,6 +14,7 @@ object ServiceLocator {
 
     @Volatile
     var preferences: Preferences? = null
+        @VisibleForTesting set
 
     @Volatile
     var mainRepository: MainRepositoryInterface? = null
@@ -56,6 +57,13 @@ object ServiceLocator {
             }
             appDatabase = null
             mainRepository = null
+        }
+    }
+
+    @VisibleForTesting
+    fun resetPreferences(){
+        synchronized(lock){
+            preferences = null
         }
     }
 
