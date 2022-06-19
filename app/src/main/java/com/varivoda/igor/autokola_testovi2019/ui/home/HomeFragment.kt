@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.work.WorkInfo
 import com.varivoda.igor.autokola_testovi2019.App
 import com.varivoda.igor.autokola_testovi2019.MainActivity
 import com.varivoda.igor.autokola_testovi2019.R
@@ -22,7 +24,8 @@ class HomeFragment : Fragment() {
 
     lateinit var binding: FragmentHomeBinding
     private val viewModel by viewModels<HomeViewModel>{
-        HomeViewModelFactory((requireContext().applicationContext as App).mainRepository)
+        HomeViewModelFactory((requireContext().applicationContext as App).mainRepository,
+            (requireContext().applicationContext as App).workManager)
     }
     //private lateinit var mainViewModel: MainViewModel
    // private lateinit var mainViewModelFactory: MainViewModelFactory
@@ -56,7 +59,19 @@ class HomeFragment : Fragment() {
             if(it==null)return@Observer
             println(it)
         })
+        viewModel.outputWorkInfo.observe(viewLifecycleOwner, Observer {
+            if(it.isNullOrEmpty()) return@Observer
+            val info = it[0]
+            when(info.state){
+                WorkInfo.State.ENQUEUED -> println("Notification worker is ENQUEUED")
+                WorkInfo.State.RUNNING -> println("Notification worker is RUNNING")
+                WorkInfo.State.FAILED -> println("Notification worker is FAILED")
+                WorkInfo.State.SUCCEEDED -> println("Notification worker is SUCCEEDED")
+                else -> println("Notification worker is UNKNOWN")
+            }
+        })
     }
+
 
     private fun observeTests() {
         viewModel.allTests.observe(viewLifecycleOwner, Observer {

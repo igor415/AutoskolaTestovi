@@ -26,5 +26,16 @@ class TestViewModelTest {
         testViewModel = TestViewModel(FakeMainRepository())
     }
 
+    @Test
+    fun testRightAnswerShowingLiveData(){
+        testViewModel.setRightAnswerShowing(true)
+        assertEquals(testViewModel.rightAnswerShowing.getOrAwaitValue(),true)
+    }
+
+    @Test
+    fun testImageResourceLiveData(){
+        testViewModel.setImageResource(12)
+        assertEquals(testViewModel.imageResource.getOrAwaitValue(),12)
+    }
 
 }

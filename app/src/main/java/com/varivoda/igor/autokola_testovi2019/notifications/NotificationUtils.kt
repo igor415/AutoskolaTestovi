@@ -13,7 +13,7 @@ import androidx.fragment.app.FragmentActivity
 import com.varivoda.igor.autokola_testovi2019.MainActivity
 import com.varivoda.igor.autokola_testovi2019.R
 
-fun NotificationManager.sendNotification(applicationContext: Context){
+fun NotificationManager.sendNotification(applicationContext: Context,title: String, message: String){
     val largerImage = BitmapFactory.decodeResource(
         applicationContext.resources,
         R.drawable.driving_school
@@ -33,8 +33,8 @@ fun NotificationManager.sendNotification(applicationContext: Context){
         "12"
     )
         .setSmallIcon(R.drawable.driving_school)
-        .setContentTitle("Ispiti Vas čekaju!")
-        .setContentText("Ostvarite lagan i siguran prolazak vozačkog ispita!")
+        .setContentTitle(title)
+        .setContentText(message)
         .setContentIntent(pendingIntent)
         .setAutoCancel(true)
         .setPriority(NotificationCompat.PRIORITY_HIGH)

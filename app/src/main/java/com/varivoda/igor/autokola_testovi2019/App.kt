@@ -20,6 +20,8 @@ class App: Application() {
         get() = ServiceLocator.provideMainRepository(this)
     val preferences: Preferences
         get() = ServiceLocator.providePreferences(this.applicationContext)
+    val workManager: WorkManager
+        get() = ServiceLocator.provideWorkManager(this.applicationContext)
 
     override fun onCreate() {
         super.onCreate()
@@ -28,8 +30,9 @@ class App: Application() {
         MobileAds.initialize(this) {}
        /* AppCompatDelegate.setDefaultNightMode(
             AppCompatDelegate.MODE_NIGHT_YES);*/
-       /* WorkManager.getInstance(applicationContext).enqueue(
-            OneTimeWorkRequestBuilder<NotificationWorker>().build())*/
+        workManager.enqueue(
+            OneTimeWorkRequestBuilder<NotificationWorker>().
+            setInputData(createInputData()).addTag("TAG").build())
     }
 
     private fun setUpRecurringWork() {
@@ -40,11 +43,20 @@ class App: Application() {
 
         val repeatingRequest = PeriodicWorkRequestBuilder<NotificationWorker>(10,TimeUnit.DAYS)
             .setInitialDelay(4,TimeUnit.DAYS)
+            .setInputData(createInputData())
+            .addTag("TAG")
             .setConstraints(constraints).build()
 
-        WorkManager.getInstance(applicationContext).enqueueUniquePeriodicWork(
+        workManager.enqueueUniquePeriodicWork(
             WORK_NAME,
             ExistingPeriodicWorkPolicy.KEEP,
             repeatingRequest)
+    }
+
+    private fun createInputData(): Data{
+        val builder = Data.Builder()
+        builder.putString("title","Ispiti Vas čekaju!")
+        builder.putString("message","Ostvarite lagan i siguran prolazak vozačkog ispita!")
+        return builder.build()
     }
 }

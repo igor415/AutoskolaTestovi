@@ -18,6 +18,7 @@ import com.varivoda.igor.autokola_testovi2019.ui.home.HomeFragment
 import com.varivoda.igor.autokola_testovi2019.ui.home.HomeFragmentDirections
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -40,12 +41,12 @@ class HomeFragmentTest {
     }
 
     @After
-    fun cleanupDb() = runBlockingTest {
+    fun cleanupDb() = runTest {
         ServiceLocator.resetMainRepository()
     }
 
     @Test
-    fun activeTests_DisplayedInUi() = runBlockingTest {
+    fun activeTests_DisplayedInUi() = runTest {
         val listOfTests = listOf(TestEntity(1),TestEntity(2))
         repository.setTestsList(listOfTests)
         launchFragmentInContainer<HomeFragment>(null,R.style.Theme_AutoškolaTestovi)
@@ -55,7 +56,7 @@ class HomeFragmentTest {
     }
 
     @Test
-    fun noTests_DisplayedInUiEmptyList() = runBlockingTest {
+    fun noTests_DisplayedInUiEmptyList() = runTest {
         val listOfTests = listOf<TestEntity>()
         repository.setTestsList(listOfTests)
         launchFragmentInContainer<HomeFragment>(null,R.style.Theme_AutoškolaTestovi)

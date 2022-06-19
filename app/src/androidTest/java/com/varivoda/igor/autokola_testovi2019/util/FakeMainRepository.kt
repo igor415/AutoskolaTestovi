@@ -13,7 +13,8 @@ class FakeMainRepository: MainRepositoryInterface {
     }
 
     override suspend fun getQuestionListForTestId(testId: Int): List<QuestionEntity> {
-        return emptyList()
+        return listOf(QuestionEntity(1,1,1,
+            "Prvo pitanje","null","1#2#3","2"))
     }
 
     fun setTestsList(list: List<TestEntity>){

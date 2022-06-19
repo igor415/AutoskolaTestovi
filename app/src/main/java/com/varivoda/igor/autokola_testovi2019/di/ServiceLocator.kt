@@ -2,6 +2,7 @@ package com.varivoda.igor.autokola_testovi2019.di
 
 import android.content.Context
 import androidx.annotation.VisibleForTesting
+import androidx.work.WorkManager
 import com.varivoda.igor.autokola_testovi2019.data.AppDatabase
 import com.varivoda.igor.autokola_testovi2019.data.pref.Preferences
 import com.varivoda.igor.autokola_testovi2019.data.pref.PreferencesImpl
@@ -17,6 +18,9 @@ object ServiceLocator {
         @VisibleForTesting set
 
     @Volatile
+    var workManager: WorkManager? = null
+
+    @Volatile
     var mainRepository: MainRepositoryInterface? = null
         @VisibleForTesting set
 
@@ -24,6 +28,16 @@ object ServiceLocator {
         synchronized(this){
             return mainRepository ?: createMainRepository(context)
         }
+    }
+
+    fun provideWorkManager(context: Context): WorkManager{
+        synchronized(this){
+            return workManager ?: createWorkManagerInstance(context)
+        }
+    }
+
+    private fun createWorkManagerInstance(context: Context): WorkManager {
+        return WorkManager.getInstance(context)
     }
 
     private fun createMainRepository(context: Context): MainRepository {
