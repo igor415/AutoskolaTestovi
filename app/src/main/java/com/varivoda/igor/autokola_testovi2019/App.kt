@@ -30,9 +30,9 @@ class App: Application() {
         MobileAds.initialize(this) {}
        /* AppCompatDelegate.setDefaultNightMode(
             AppCompatDelegate.MODE_NIGHT_YES);*/
-        workManager.enqueue(
+        /*workManager.enqueue(
             OneTimeWorkRequestBuilder<NotificationWorker>().
-            setInputData(createInputData()).addTag("TAG").build())
+            setInputData(createInputData()).addTag("TAG").build())*/
     }
 
     private fun setUpRecurringWork() {

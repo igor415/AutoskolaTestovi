@@ -2,6 +2,7 @@ package com.varivoda.igor.autokola_testovi2019
 
 import android.animation.*
 import android.content.Intent
+import android.content.IntentFilter
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -14,6 +15,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.varivoda.igor.autokola_testovi2019.databinding.ActivityMainBinding
 import com.varivoda.igor.autokola_testovi2019.notifications.createChannel
+import com.varivoda.igor.autokola_testovi2019.util.BatteryLowReceiver
 
 
 class MainActivity : AppCompatActivity() {
@@ -21,11 +23,13 @@ class MainActivity : AppCompatActivity() {
     private var navController: NavController? = null
     private var lastSelected: CardView? = null
     private lateinit var binding: ActivityMainBinding
+    private lateinit var batteryLowReceiver: BatteryLowReceiver
 
     override fun onCreate(savedInstanceState: Bundle?) { //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         this.createChannel()
+        batteryLowReceiver = BatteryLowReceiver((this.applicationContext as App).preferences)
 
         navController = Navigation.findNavController(this, R.id.myNavHostFragment)
 
@@ -241,6 +245,16 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        this.registerReceiver(batteryLowReceiver, IntentFilter(Intent.ACTION_BATTERY_LOW))
+    }
+
+    override fun onStop() {
+        super.onStop()
+        this.unregisterReceiver(batteryLowReceiver)
     }
 
 

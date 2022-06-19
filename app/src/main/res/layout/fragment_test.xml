@@ -229,15 +229,16 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/start"/>
 
-            <androidx.appcompat.widget.AppCompatButton
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="KRENI"
+                style="@style/materialButtonGrayColorStyle"
                 android:background="@drawable/advice_text_background"
-                android:backgroundTint="@color/separatorColor"
                 android:textColor="@color/teal_700"
                 android:layout_marginBottom="15dp"
+                app:backgroundTint="@color/separatorColor"
                 android:onClick="@{() -> viewModel.startExam()}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
